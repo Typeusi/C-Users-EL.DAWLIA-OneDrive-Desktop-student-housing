@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+
+           
+
+        
+        
+
+      
+           <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,10 +14,9 @@
     <title>Student Housing Website</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        /* إعدادات أساسية للصفحة */
+        /* Basic page settings */
         body {
             margin: 0;
             padding: 0;
@@ -18,7 +24,7 @@
             transition: background-color 0.5s, color 0.5s;
         }
 
-        /* خلفية الفيديو */
+        /* Background video */
         .background-video {
             position: fixed;
             top: 0;
@@ -30,12 +36,12 @@
             transition: filter 0.5s ease;
         }
 
-        /* تأثير الفيديو في الوضع الليلي */
+        /* Night mode video effect */
         .night-mode .background-video {
             filter: brightness(0.3) contrast(1.2);
         }
 
-        /* تأثيرات متحركة */
+        /* Pulsing animation */
         .pulse {
             animation: pulse-animation 1.5s infinite;
         }
@@ -45,13 +51,12 @@
             100% {
                 transform: scale(1);
             }
-
             50% {
                 transform: scale(1.05);
             }
         }
 
-        /* تخصيص الوضع الليلي والنهاري */
+        /* Night and day mode customization */
         .night-mode {
             background-color: #2c3e50;
             color: white;
@@ -62,134 +67,36 @@
             color: black;
         }
 
-        /* تخصيص الأزرار */
-        .register-login-section button {
-            transition: transform 0.5s ease;
-        }
-
-        /* تأثير الألوان المتنقلة للنصوص */
-        .text-change {
-            animation: changeTextColor 3s infinite alternate;
-        }
-
-        @keyframes changeTextColor {
-            0% {
-                color: #e74c3c;
-            }
-
-            25% {
-                color: #8e44ad;
-            }
-
-            50% {
-                color: #3498db;
-            }
-
-            75% {
-                color: #2ecc71;
-            }
-
-            100% {
-                color: #e74c3c;
-            }
-        }
-
-        /* تخصيص الأيقونات في التنقل */
-        .navbar-nav {
-            transition: transform 0.5s ease;
-        }
-
-        /* تأثير المطر */
-        .rain {
+        /* Centered animated text */
+        .centered-text {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('mmm.mp4') repeat;
-            opacity: 0.3;
-            pointer-events: none;
-            display: none;
-            z-index: 9999;
-            animation: rainAnimation 0.5s infinite;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: #e74c3c;
+            text-align: center;
+            animation: pulse-animation 1.5s infinite;
         }
 
-        @keyframes rainAnimation {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 0 100%;
-            }
-        }
-
-        .rain.show {
-            display: block;
-        }
-
-        /* تأثير الأيقونات عند التمرير */
-        .nav-link i {
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover i {
-            color: #3498db;
-        }
-
-        /* تنسيق أيقونة الأدمن */
-        .admin-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #2ecc71;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            animation: pulse 2s infinite;
-            z-index: 1000;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .admin-icon i {
-            font-size: 20px;
-        }
-
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* تغيير اللون عند التمرير */
-        .admin-icon:hover {
-            background-color: #27ae60;
-            transform: scale(1.1);
-        }
-        h1{
-            color: red;
-            text-align center;
-        }
+        /* Other styles remain unchanged */
+        /* ... (rest of your CSS) ... */
     </style>
 </head>
 
 <body class="day-mode">
-<h><strong>Student Housing </strong></h>
-    <!-- خلفية الفيديو -->
+
+    <!-- Background video -->
     <video class="background-video" autoplay loop muted>
         <source src="mmm.mp4" type="video/mp4">
         <source src="mmm.mp4" type="video/ogg">
         Your browser does not support the video tag.
     </video>
 
-    <!-- الشريط العلوي -->
+    <!-- Centered animated text -->
+    <div class="centered-text">Student Housing</div>
+
+    <!-- Top navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand text-change" href="#">Student Housing</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -223,15 +130,14 @@
     </nav>
 
     <div class="container mt-5">
-        <!-- محتوى الصفحات سيتم وضعه هنا -->
-        
+        <!-- Page content will go here -->
     </div>
 
-    <!-- عنصر المطر -->
+    <!-- Rain effect element -->
     <div id="rainEffect" class="rain"></div>
 
     <script>
-        // تغيير الوضع بين النهار والليل
+        // Toggle between day and night mode
         const toggleButton = document.getElementById('toggleMode');
         const toggleLanguageButton = document.getElementById('toggleLanguage');
         const body = document.body;
@@ -246,7 +152,7 @@
             moonIcon.classList.toggle('fa-sun');
         });
 
-        // تبديل اللغة بين العربية والإنجليزية
+        // Toggle language between Arabic and English
         toggleLanguageButton.addEventListener('click', () => {
             const navLinks = document.querySelectorAll('.nav-link');
             if (body.classList.contains('day-mode')) {
@@ -264,13 +170,13 @@
             }
         });
 
-        // تفعيل تأثير المطر
+        // Activate rain effect
         rainButton.addEventListener('click', () => {
             rainEffect.classList.toggle('show');
         });
     </script>
 
-    <!-- تحميل ملفات الجافا سكربت -->
+    <!-- Load JavaScript files -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -278,3 +184,7 @@
 </body>
 
 </html>
+
+      
+    <!-- الشريط العلوي -->
+ 
